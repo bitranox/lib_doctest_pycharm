@@ -38,6 +38,8 @@ if os.path.exists(readme_filename):
     except Exception:
         pass
 
+install('https://github.com/bitranox/lib_log_utils/archive/master.zip')
+
 setup(
     name='lib_doctest_pycharm',
     version='0.0.1',
