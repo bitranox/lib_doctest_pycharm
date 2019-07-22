@@ -23,14 +23,13 @@ def setup_doctest_logger_for_pycharm(log_level: int = logging.INFO):
     # logger.pycharm_doctest_logger_added = True
 
     # pycharm doctest tested OK
-    if is_pycharm_docrunner():
+    # pytest.py tested OK
+    if is_pycharm_docrunner() or is_pytest_py():
         logger_add_streamhandler_to_sys_stdout()
         logger.pycharm_doctest_logger_added = True
         logging.getLogger().setLevel(log_level)
         logging.getLogger('root').setLevel(log_level)
     elif is_pycharm_pytest_runner():
-        pass
-    elif is_pytest_py():
         pass
 
 
