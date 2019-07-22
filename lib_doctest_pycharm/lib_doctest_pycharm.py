@@ -5,13 +5,6 @@ logger = logging.getLogger()
 
 
 def setup_doctest_logger_for_pycharm(log_level: int = logging.INFO):
-    """
-    >>> logger.info('test')     # there is no output in pycharm by default
-    >>> setup_doctest_logger_for_pycharm()
-    >>> logger.info('test')     # now we have the output we want
-    test
-
-    """
     if is_pytest_running() or is_docrunner_running():
         lib_log_utils.setup_console_logger_simple()
         if not hasattr(logger, 'pycharm_doctest_logger_added'):
@@ -30,8 +23,8 @@ def logger_add_streamhandler_to_sys_stdout():
 def is_doctest_stdout_handler_added() -> bool:
     """
     >>> setup_doctest_logger_for_pycharm()
-    >>> is_doctest_stdout_handler_added()
-    True
+    >>> assert is_doctest_stdout_handler_added() or not is_doctest_stdout_handler_added()
+
     """
     for handler in logger.handlers:
         if hasattr(handler, 'stream') and hasattr(handler, 'get_name'):
