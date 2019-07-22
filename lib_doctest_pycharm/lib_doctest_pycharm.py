@@ -1,4 +1,3 @@
-import lib_log_utils
 import logging
 import sys
 logger = logging.getLogger()
