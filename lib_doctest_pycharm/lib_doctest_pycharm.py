@@ -3,7 +3,7 @@ import sys
 logger = logging.getLogger()
 
 
-def setup_doctest_logger_for_pycharm(log_level: int = logging.INFO):
+def setup_doctest_logger_for_pycharm(log_level: int = logging.INFO) -> None:
     """
     >>> logger=logging.getLogger()
     >>> logger.setLevel(logging.INFO)
@@ -25,14 +25,15 @@ def setup_doctest_logger_for_pycharm(log_level: int = logging.INFO):
     # pytest.py tested OK
     if is_pycharm_docrunner() or is_pytest_py():
         logger_add_streamhandler_to_sys_stdout()
-        logger.pycharm_doctest_logger_added = True
+        # noinspection PyTypeHints
+        logger.pycharm_doctest_logger_added = True  # type: ignore
         logging.getLogger().setLevel(log_level)
         logging.getLogger('root').setLevel(log_level)
     elif is_pycharm_pytest_runner():
         pass
 
 
-def logger_add_streamhandler_to_sys_stdout():
+def logger_add_streamhandler_to_sys_stdout() -> None:
     if not is_doctest_stdout_handler_added():
         console = logging.StreamHandler(stream=sys.stdout)
         console.name = 'doctest_console_handler'
@@ -47,7 +48,7 @@ def is_doctest_stdout_handler_added() -> bool:
     """
     for handler in logger.handlers:
         if hasattr(handler, 'stream') and hasattr(handler, 'get_name'):
-            if handler.stream == sys.stdout and handler.get_name() == 'doctest_console_handler':
+            if handler.stream == sys.stdout and handler.get_name() == 'doctest_console_handler':        # type: ignore
                 return True
     return False
 
@@ -59,14 +60,14 @@ def is_pycharm_docrunner() -> bool:
         return False
 
 
-def is_pycharm_pytest_runner():
+def is_pycharm_pytest_runner() -> bool:
     if 'pytest_runner.py' in sys.argv[0]:
         return True
     else:
         return False
 
 
-def is_pytest_py():
+def is_pytest_py() -> bool:
     if 'pytest.py' in sys.argv[0]:
         return True
     else:
