@@ -1,2 +1,6 @@
 # this __init__.py is only meant for local package development
-from .lib_doctest_pycharm import *
+try:
+    from .lib_doctest_pycharm import *
+# this we need for pip install --install-option test
+except ImportError:
+    import lib_doctest_pycharm
