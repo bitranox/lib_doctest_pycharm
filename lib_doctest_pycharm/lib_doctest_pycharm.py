@@ -7,8 +7,9 @@ def setup_doctest_logger_for_pycharm(log_level: int = logging.INFO) -> None:
     """
     >>> logger=logging.getLogger()
     >>> logger.setLevel(logging.INFO)
-    >>> setup_doctest_logger_for_pycharm()
-    >>> logger.info('test')     # now we have the output we want
+    >>> if is_pycharm_pytest_runner() or is_pycharm_docrunner():
+    ...     setup_doctest_logger_for_pycharm()
+    ...     logger.info('test')     # now we have the output we want
     test
 
     """
