@@ -56,7 +56,7 @@ matrix:
       before_install:
           - export mypy_static_typecheck="True"
           - export build_docs="True"
-          - export deploy_on_pypi="False"
+          - export deploy_on_pypi="True"
 
     - os: linux
       language: python
