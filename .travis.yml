@@ -9,14 +9,13 @@ env:
         - pip_command="pip"
         - python_command="python"
         - WINEDEBUG=fixme-all       # switch off wine fix me messages
-        - CODECOV_TOKEN="95b44c95-2c2f-4c5f-b70e-eb4cbfec15f1"
-        # pypi_password for rst_include
+        # pypi_password for lib_doctest_pycharm
         # This works for sure - the Travis deploy is somehow buggy.
         # create the secret :
         # cd /<repository>
-        # travis encrypt pypi_password=*****
+        # travis encrypt -r bitranox/lib_doctest_pycharm pypi_password=*****
         # copy and paste the encrypted password here
-        # - secure: "....."
+        - secure: "OzpujQeP4qxghYHSbf1ZtSb7YD8HEB39FRWI6yCyeCgJV7vSOpgdXDkO/bBz1Xj96jTiRIisFB4kErl186rVYK1VOm+zfQ2MCoQ2OJHkexRgpaKaJbXM+6FBLZaXc+vpQt57bf97VlRl554N1Quftt17w7mvGJAzxw0G92d0GBpGyMYw2YyfLkMWw1aZbAYa8Sh8J9kFk9CFyV9+qGUOjGXnjGwUeZ/D4PMXLACfa8bhKVlZ4QC9Lxxur6gV6wwqLZsqx44BSpIq3SEDF/KK87Oa8In7uGJJUqgFOXQ+OC0ceXQ80fEEYZmHebLX+Kch/2EzQpjCtWLXL4tfxTwW5cHu4hHshJibGs8ocBuvPjOg8mjXI/NvH2qXjojQsdwpi1g4uT3tNWyJRsQIjm3XkR6KDp3Sr8hexgWOXVkLEFuHh2LdN0md5/qGj2Eor/rSeA/RwfsJHQUAO8itkYWF3ScqMi6Uln/DAsebgAUW+eihToH6OigGPLcpf87+Oct8UpxlItb+J54qoE9b+1Qg0xbRUN4mcecQ4oxrkjmEQoFZGtCZKrt9TIcyIUPJ4s43Y8KXCIpzWZId/J6NN2pfM2jQbbkRLSM1tOd06qWBnErPGVUKvBtEQWx+5tVJOD7V+4HrQisAj3DGx2M3haPIfA/7wv+4xw1VTYLO1DGQvgM="
 
 addons:
     apt:
