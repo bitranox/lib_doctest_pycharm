@@ -5,14 +5,14 @@ import pathlib
 from typing import Dict, List
 
 try:
-    from setuptools import setup
+    from setuptools import setup        # type: ignore
 except ImportError:
     from distutils.core import setup
 
 package_name = 'lib_doctest_pycharm'                                                # type: str
-required = list()                                                                   # type: List
-required_for_tests = list()                                                         # type: List
-entry_points = dict()                                                               # type: Dict
+required = list()                                                                   # type: List[str]
+required_for_tests = list()                                                         # type: List[str]
+entry_points = dict()                                                               # type: Dict[str, str]
 
 
 def get_version(dist_directory: str) -> str:
